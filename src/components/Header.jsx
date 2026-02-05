@@ -1,13 +1,13 @@
-import { Wrench } from 'lucide-react';
+import TsoLogo from './TsoLogo';
 
 export default function Header({ activeTab, onTabChange }) {
   return (
     <header className="app-header">
       <div className="header-brand">
-        <Wrench size={28} />
+        <TsoLogo size={38} />
         <div>
-          <h1>FontaStock</h1>
-          <span className="header-subtitle">Inventario de fontanería</span>
+          <h1>TSOck Control</h1>
+          <span className="header-subtitle">Inventario TSO</span>
         </div>
       </div>
       <nav className="header-nav">
