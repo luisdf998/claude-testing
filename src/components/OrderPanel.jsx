@@ -7,6 +7,7 @@ import {
   AlertTriangle,
   ChevronDown,
   ChevronUp,
+  Mail,
 } from 'lucide-react';
 import { useInventory } from '../context/InventoryContext';
 import { ORDER_STATUS } from '../data/categories';
@@ -14,12 +15,12 @@ import { ORDER_STATUS } from '../data/categories';
 export default function OrderPanel() {
   const { state, dispatch } = useInventory();
   const [expandedOrder, setExpandedOrder] = useState(null);
+  const [selectedSupplier, setSelectedSupplier] = useState('');
 
   const supplierMap = Object.fromEntries(
     state.suppliers.map((s) => [s.id, s])
   );
 
-  // Materials with low stock grouped by supplier
   const lowStockMaterials = state.materials.filter(
     (m) => m.quantity <= m.minStock && m.minStock > 0
   );
@@ -32,20 +33,23 @@ export default function OrderPanel() {
   }, {});
 
   function createOrder(supplierId, materials) {
+    const resolvedId = supplierId === 'sin-proveedor' ? selectedSupplier : supplierId;
+    if (!resolvedId) return;
+
     const items = materials.map((m) => ({
       materialId: m.id,
       name: m.name,
-      quantity: m.minStock * 2 - m.quantity, // order enough to reach 2x minimum
+      quantity: Math.max(1, m.minStock * 2 - m.quantity),
       unit: m.unit,
       price: m.price,
     }));
 
-    const supplier = supplierMap[supplierId];
+    const supplier = supplierMap[resolvedId];
     dispatch({
       type: 'CREATE_ORDER',
       payload: {
-        supplierId,
-        supplierName: supplier?.name || 'Sin proveedor',
+        supplierId: resolvedId,
+        supplierName: supplier?.name || 'Proveedor',
         items,
         total: items.reduce((sum, i) => sum + i.quantity * i.price, 0),
       },
@@ -58,43 +62,28 @@ export default function OrderPanel() {
     order.items.forEach((item) => {
       msg += `- ${item.name}: ${item.quantity} ${item.unit}\n`;
     });
-    msg += `\nTotal estimado: ${order.total.toFixed(2)} €\n`;
-    msg += `\nGracias, TSO`;
+    msg += `\nTotal estimado: ${order.total.toFixed(2)} €\nGracias, TSO`;
     return encodeURIComponent(msg);
   }
 
   function generateEmailBody(order) {
-    const supplier = supplierMap[order.supplierId];
     let body = `Estimados,\n\nNecesitamos realizar el siguiente pedido:\n\n`;
     order.items.forEach((item) => {
       body += `- ${item.name}: ${item.quantity} ${item.unit} (${(item.quantity * item.price).toFixed(2)} €)\n`;
     });
-    body += `\nTotal estimado: ${order.total.toFixed(2)} €\n`;
-    body += `\nRuego confirmación de disponibilidad y plazo de entrega.\n\nUn saludo,\nTSO`;
+    body += `\nTotal estimado: ${order.total.toFixed(2)} €\n\nUn saludo,\nTSO`;
     return encodeURIComponent(body);
-  }
-
-  function handleMarkReceived(orderId) {
-    dispatch({ type: 'MARK_ORDER_RECEIVED', payload: orderId });
-  }
-
-  function handleSendOrder(orderId) {
-    dispatch({
-      type: 'UPDATE_ORDER_STATUS',
-      payload: { id: orderId, status: 'sent' },
-    });
   }
 
   return (
     <div className="orders-section">
-      {/* Low stock alerts with quick order */}
       {Object.keys(lowStockBySupplier).length > 0 && (
         <div className="low-stock-orders">
-          <h3>
-            <AlertTriangle size={16} /> Material por pedir
-          </h3>
+          <h3><AlertTriangle size={16} /> Material por pedir</h3>
           {Object.entries(lowStockBySupplier).map(([supplierId, materials]) => {
             const supplier = supplierMap[supplierId];
+            const isUnassigned = supplierId === 'sin-proveedor';
+
             return (
               <div key={supplierId} className="order-suggestion">
                 <div className="order-suggestion-header">
@@ -112,14 +101,27 @@ export default function OrderPanel() {
                     </li>
                   ))}
                 </ul>
-                {supplierId !== 'sin-proveedor' && (
+                <div className="order-suggestion-actions">
+                  {isUnassigned && state.suppliers.length > 0 && (
+                    <select
+                      className="category-select"
+                      value={selectedSupplier}
+                      onChange={(e) => setSelectedSupplier(e.target.value)}
+                    >
+                      <option value="">Seleccionar proveedor...</option>
+                      {state.suppliers.map((s) => (
+                        <option key={s.id} value={s.id}>{s.name}</option>
+                      ))}
+                    </select>
+                  )}
                   <button
                     className="btn btn-primary"
                     onClick={() => createOrder(supplierId, materials)}
+                    disabled={isUnassigned && !selectedSupplier}
                   >
                     <ShoppingCart size={15} /> Crear pedido
                   </button>
-                )}
+                </div>
               </div>
             );
           })}
@@ -132,7 +134,6 @@ export default function OrderPanel() {
         </div>
       )}
 
-      {/* Order history */}
       {state.orders.length > 0 && (
         <div className="orders-history">
           <h3>Pedidos ({state.orders.length})</h3>
@@ -148,10 +149,7 @@ export default function OrderPanel() {
                   onClick={() => setExpandedOrder(isExpanded ? null : order.id)}
                 >
                   <div className="order-card-info">
-                    <span
-                      className="order-status-badge"
-                      style={{ backgroundColor: statusInfo.color }}
-                    >
+                    <span className="order-status-badge" style={{ backgroundColor: statusInfo.color }}>
                       {statusInfo.label}
                     </span>
                     <strong>{order.supplierName}</strong>
@@ -167,11 +165,7 @@ export default function OrderPanel() {
                   <div className="order-card-body">
                     <table className="order-items-table">
                       <thead>
-                        <tr>
-                          <th>Material</th>
-                          <th>Cantidad</th>
-                          <th>Precio</th>
-                        </tr>
+                        <tr><th>Material</th><th>Cant.</th><th>Precio</th></tr>
                       </thead>
                       <tbody>
                         {order.items.map((item, i) => (
@@ -188,44 +182,27 @@ export default function OrderPanel() {
                       {order.status === 'pending' && (
                         <>
                           {supplier?.email && (
-                            <a
-                              className="btn btn-secondary"
-                              href={`mailto:${supplier.email}?subject=Pedido TSO&body=${generateEmailBody(order)}`}
-                            >
+                            <a className="btn btn-secondary" href={`mailto:${supplier.email}?subject=Pedido TSO&body=${generateEmailBody(order)}`}>
                               <Mail size={15} /> Email
                             </a>
                           )}
                           {supplier?.phone && (
-                            <a
-                              className="btn btn-secondary"
-                              href={`https://wa.me/${supplier.phone.replace(/\s/g, '')}?text=${generateWhatsAppMessage(order)}`}
-                              target="_blank"
-                              rel="noreferrer"
-                            >
+                            <a className="btn btn-secondary" href={`https://wa.me/${supplier.phone.replace(/\s/g, '')}?text=${generateWhatsAppMessage(order)}`} target="_blank" rel="noreferrer">
                               <Send size={15} /> WhatsApp
                             </a>
                           )}
-                          <button
-                            className="btn btn-primary"
-                            onClick={() => handleSendOrder(order.id)}
-                          >
-                            <Send size={15} /> Marcar enviado
+                          <button className="btn btn-primary" onClick={() => handleSendOrder(order.id)}>
+                            <Send size={15} /> Enviado
                           </button>
                         </>
                       )}
                       {order.status === 'sent' && (
-                        <button
-                          className="btn btn-primary"
-                          onClick={() => handleMarkReceived(order.id)}
-                        >
-                          <PackageCheck size={15} /> Recibido (actualizar stock)
+                        <button className="btn btn-primary" onClick={() => dispatch({ type: 'MARK_ORDER_RECEIVED', payload: order.id })}>
+                          <PackageCheck size={15} /> Recibido
                         </button>
                       )}
                       {(order.status === 'received' || order.status === 'cancelled') && (
-                        <button
-                          className="btn btn-secondary"
-                          onClick={() => dispatch({ type: 'DELETE_ORDER', payload: order.id })}
-                        >
+                        <button className="btn btn-secondary" onClick={() => dispatch({ type: 'DELETE_ORDER', payload: order.id })}>
                           <Trash2 size={15} /> Eliminar
                         </button>
                       )}
@@ -239,13 +216,8 @@ export default function OrderPanel() {
       )}
     </div>
   );
-}
 
-function Mail({ size }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect width="20" height="16" x="2" y="4" rx="2" />
-      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-    </svg>
-  );
+  function handleSendOrder(orderId) {
+    dispatch({ type: 'UPDATE_ORDER_STATUS', payload: { id: orderId, status: 'sent' } });
+  }
 }

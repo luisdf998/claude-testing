@@ -107,7 +107,7 @@
 .search-input:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.15);
 }
 
 .search-clear {
@@ -448,7 +448,7 @@
 .form-group textarea:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.15);
 }
 
 .form-group textarea {
@@ -832,6 +832,23 @@
 
 .order-suggestion-items li:last-child {
   border-bottom: none;
+}
+
+.order-suggestion-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.order-suggestion-actions select {
+  flex: 1;
+  min-width: 150px;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 .orders-history h3 {

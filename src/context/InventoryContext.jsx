@@ -11,8 +11,12 @@ function loadFromStorage() {
     if (data) {
       const parsed = JSON.parse(data);
       // Migrate old data that doesn't have suppliers/expenses/orders
+      const migratedMaterials = (parsed.materials || []).map((m) => ({
+        ...m,
+        supplierId: m.supplierId || '',
+      }));
       return {
-        materials: parsed.materials || [],
+        materials: migratedMaterials,
         suppliers: parsed.suppliers || SAMPLE_SUPPLIERS,
         orders: parsed.orders || [],
         expenses: parsed.expenses || SAMPLE_EXPENSES,
