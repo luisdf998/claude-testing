@@ -8,6 +8,8 @@ import {
   ChevronDown,
   ChevronUp,
   Mail,
+  Copy,
+  Check,
 } from 'lucide-react';
 import { useInventory } from '../context/InventoryContext';
 import { ORDER_STATUS } from '../data/categories';
@@ -16,6 +18,7 @@ export default function OrderPanel() {
   const { state, dispatch } = useInventory();
   const [expandedOrder, setExpandedOrder] = useState(null);
   const [selectedSupplier, setSelectedSupplier] = useState('');
+  const [copiedId, setCopiedId] = useState(null);
 
   const supplierMap = Object.fromEntries(
     state.suppliers.map((s) => [s.id, s])
@@ -66,13 +69,29 @@ export default function OrderPanel() {
     return encodeURIComponent(msg);
   }
 
-  function generateEmailBody(order) {
+  function generateEmailText(order) {
     let body = `Estimados,\n\nNecesitamos realizar el siguiente pedido:\n\n`;
     order.items.forEach((item) => {
       body += `- ${item.name}: ${item.quantity} ${item.unit} (${(item.quantity * item.price).toFixed(2)} €)\n`;
     });
     body += `\nTotal estimado: ${order.total.toFixed(2)} €\n\nUn saludo,\nTSO`;
-    return encodeURIComponent(body);
+    return body;
+  }
+
+  function getGmailLink(order) {
+    const supplier = supplierMap[order.supplierId];
+    const to = supplier?.email || '';
+    const subject = encodeURIComponent('Pedido TSO');
+    const body = encodeURIComponent(generateEmailText(order));
+    return `https://mail.google.com/mail/?view=cm&to=${to}&su=${subject}&body=${body}`;
+  }
+
+  function handleCopyOrder(order) {
+    const text = generateEmailText(order);
+    navigator.clipboard.writeText(text).then(() => {
+      setCopiedId(order.id);
+      setTimeout(() => setCopiedId(null), 2000);
+    });
   }
 
   return (
@@ -182,8 +201,8 @@ export default function OrderPanel() {
                       {order.status === 'pending' && (
                         <>
                           {supplier?.email && (
-                            <a className="btn btn-secondary" href={`mailto:${supplier.email}?subject=Pedido TSO&body=${generateEmailBody(order)}`}>
-                              <Mail size={15} /> Email
+                            <a className="btn btn-secondary" href={getGmailLink(order)} target="_blank" rel="noreferrer">
+                              <Mail size={15} /> Gmail
                             </a>
                           )}
                           {supplier?.phone && (
@@ -191,6 +210,10 @@ export default function OrderPanel() {
                               <Send size={15} /> WhatsApp
                             </a>
                           )}
+                          <button className="btn btn-secondary" onClick={() => handleCopyOrder(order)}>
+                            {copiedId === order.id ? <Check size={15} /> : <Copy size={15} />}
+                            {copiedId === order.id ? 'Copiado' : 'Copiar'}
+                          </button>
                           <button className="btn btn-primary" onClick={() => handleSendOrder(order.id)}>
                             <Send size={15} /> Enviado
                           </button>
