@@ -7,6 +7,9 @@ import MaterialList from './components/MaterialList';
 import MaterialForm from './components/MaterialForm';
 import Dashboard from './components/Dashboard';
 import DataTools from './components/DataTools';
+import SupplierList from './components/SupplierList';
+import OrderPanel from './components/OrderPanel';
+import ExpenseList from './components/ExpenseList';
 import './App.css';
 
 function AppContent() {
@@ -55,9 +58,18 @@ function AppContent() {
           </>
         )}
 
-        {activeTab === 'dashboard' && <Dashboard />}
+        {activeTab === 'orders' && <OrderPanel />}
 
-        {activeTab === 'tools' && <DataTools />}
+        {activeTab === 'expenses' && <ExpenseList />}
+
+        {activeTab === 'suppliers' && <SupplierList />}
+
+        {activeTab === 'dashboard' && (
+          <>
+            <Dashboard />
+            <DataTools />
+          </>
+        )}
       </main>
 
       {showForm && (

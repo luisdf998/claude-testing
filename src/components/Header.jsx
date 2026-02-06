@@ -18,16 +18,28 @@ export default function Header({ activeTab, onTabChange }) {
           Inventario
         </button>
         <button
+          className={`nav-btn ${activeTab === 'orders' ? 'active' : ''}`}
+          onClick={() => onTabChange('orders')}
+        >
+          Pedidos
+        </button>
+        <button
+          className={`nav-btn ${activeTab === 'expenses' ? 'active' : ''}`}
+          onClick={() => onTabChange('expenses')}
+        >
+          Gastos
+        </button>
+        <button
+          className={`nav-btn ${activeTab === 'suppliers' ? 'active' : ''}`}
+          onClick={() => onTabChange('suppliers')}
+        >
+          Proveedores
+        </button>
+        <button
           className={`nav-btn ${activeTab === 'dashboard' ? 'active' : ''}`}
           onClick={() => onTabChange('dashboard')}
         >
           Resumen
-        </button>
-        <button
-          className={`nav-btn ${activeTab === 'tools' ? 'active' : ''}`}
-          onClick={() => onTabChange('tools')}
-        >
-          Datos
         </button>
       </nav>
     </header>

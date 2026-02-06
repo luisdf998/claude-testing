@@ -21,6 +21,74 @@ export const UNITS = [
   'pares',
 ];
 
+export const EXPENSE_CATEGORIES = [
+  'Material',
+  'Herramientas',
+  'Transporte',
+  'Subcontrata',
+  'Combustible',
+  'Dietas',
+  'Otros',
+];
+
+export const ORDER_STATUS = {
+  pending: { label: 'Pendiente', color: '#f59e0b' },
+  sent: { label: 'Enviado', color: '#3b82f6' },
+  received: { label: 'Recibido', color: '#10b981' },
+  cancelled: { label: 'Cancelado', color: '#ef4444' },
+};
+
+export const SAMPLE_SUPPLIERS = [
+  {
+    id: '1',
+    name: 'SumiAgua S.L.',
+    phone: '912 345 678',
+    email: 'pedidos@sumiagua.es',
+    notes: 'Entrega en 24-48h. Pedido mínimo 50€',
+  },
+  {
+    id: '2',
+    name: 'Fontanería Industrial López',
+    phone: '622 111 222',
+    email: 'ventas@filópez.es',
+    notes: 'Buen precio en cobre y conexiones',
+  },
+  {
+    id: '3',
+    name: 'CalorMax Distribuciones',
+    phone: '911 222 333',
+    email: 'info@calormax.es',
+    notes: 'Especialista en calefacción y radiadores',
+  },
+];
+
+export const SAMPLE_EXPENSES = [
+  {
+    id: '1',
+    date: '2026-02-03',
+    description: 'Compra tubería PVC obra C/ Mayor',
+    amount: 85.40,
+    category: 'Material',
+    notes: 'Factura #F2026-041',
+  },
+  {
+    id: '2',
+    date: '2026-02-04',
+    description: 'Gasolina furgoneta',
+    amount: 65.00,
+    category: 'Combustible',
+    notes: '',
+  },
+  {
+    id: '3',
+    date: '2026-02-05',
+    description: 'Llave dinamométrica nueva',
+    amount: 42.90,
+    category: 'Herramientas',
+    notes: 'Amazon',
+  },
+];
+
 export const SAMPLE_MATERIALS = [
   {
     id: '1',
@@ -32,6 +100,7 @@ export const SAMPLE_MATERIALS = [
     location: 'Estante A1',
     price: 3.50,
     notes: 'Para desagües domésticos',
+    supplierId: '1',
   },
   {
     id: '2',
@@ -43,6 +112,7 @@ export const SAMPLE_MATERIALS = [
     location: 'Cajón B2',
     price: 0.85,
     notes: '',
+    supplierId: '1',
   },
   {
     id: '3',
@@ -54,6 +124,7 @@ export const SAMPLE_MATERIALS = [
     location: 'Estante C1',
     price: 8.90,
     notes: 'Latón cromado',
+    supplierId: '2',
   },
   {
     id: '4',
@@ -87,6 +158,7 @@ export const SAMPLE_MATERIALS = [
     location: 'Cajón A3',
     price: 0.60,
     notes: 'Stock bajo - pedir más',
+    supplierId: '1',
   },
   {
     id: '7',
@@ -109,6 +181,7 @@ export const SAMPLE_MATERIALS = [
     location: 'Estante A2',
     price: 6.80,
     notes: 'Para agua caliente',
+    supplierId: '2',
   },
   {
     id: '9',
@@ -120,6 +193,7 @@ export const SAMPLE_MATERIALS = [
     location: 'Zona almacén fondo',
     price: 89.00,
     notes: '',
+    supplierId: '3',
   },
   {
     id: '10',

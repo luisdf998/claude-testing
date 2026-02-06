@@ -12,10 +12,11 @@ const emptyForm = {
   location: '',
   price: 0,
   notes: '',
+  supplierId: '',
 };
 
 export default function MaterialForm({ material, onClose }) {
-  const { dispatch } = useInventory();
+  const { state, dispatch } = useInventory();
   const [form, setForm] = useState(emptyForm);
 
   useEffect(() => {
@@ -151,6 +152,23 @@ export default function MaterialForm({ material, onClose }) {
                 onChange={handleChange}
               />
             </div>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="supplierId">Proveedor</label>
+            <select
+              id="supplierId"
+              name="supplierId"
+              value={form.supplierId}
+              onChange={handleChange}
+            >
+              <option value="">Sin proveedor</option>
+              {state.suppliers.map((s) => (
+                <option key={s.id} value={s.id}>
+                  {s.name}
+                </option>
+              ))}
+            </select>
           </div>
 
           <div className="form-group">

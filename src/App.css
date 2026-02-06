@@ -713,3 +713,354 @@
     padding: 20px;
   }
 }
+
+/* ========== Section Header ========== */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.section-header h2 {
+  font-size: 1.1rem;
+}
+
+/* ========== Suppliers ========== */
+.supplier-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.supplier-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+}
+
+.supplier-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+
+.supplier-card-header h3 {
+  font-size: 0.95rem;
+}
+
+.supplier-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.supplier-details a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.supplier-details a:hover {
+  color: var(--color-primary);
+}
+
+.supplier-material-count {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+/* ========== Orders ========== */
+.orders-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.low-stock-orders h3 {
+  font-size: 0.95rem;
+  color: var(--color-danger);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.order-suggestion {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  margin-bottom: 10px;
+}
+
+.order-suggestion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.order-suggestion-supplier {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.order-suggestion-count {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+.order-suggestion-items {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.order-suggestion-items li {
+  font-size: 0.85rem;
+  padding: 3px 0;
+  border-bottom: 1px solid #fecaca;
+}
+
+.order-suggestion-items li:last-child {
+  border-bottom: none;
+}
+
+.orders-history h3 {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.order-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.order-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.order-card-header:hover {
+  background: var(--color-bg);
+}
+
+.order-card-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+}
+
+.order-status-badge {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: white;
+}
+
+.order-card-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-secondary);
+}
+
+.order-total {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.order-card-body {
+  padding: 0 14px 14px;
+  border-top: 1px solid var(--color-border);
+}
+
+.order-items-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin: 10px 0;
+}
+
+.order-items-table th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  padding: 4px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.order-items-table td {
+  padding: 4px 0;
+}
+
+.order-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.order-actions a {
+  text-decoration: none;
+}
+
+/* ========== Expenses ========== */
+.expense-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.expense-summary-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.expense-total {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.expense-total strong {
+  color: var(--color-text);
+  font-size: 1.1rem;
+}
+
+.expense-categories-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.expense-cat-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+}
+
+.expense-cat-chip strong {
+  color: var(--color-primary);
+}
+
+.expense-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.expense-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 12px 14px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.expense-card-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.expense-date {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.expense-cat-badge {
+  font-size: 0.7rem;
+  color: var(--color-primary);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.expense-card-center {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.expense-card-center strong {
+  font-size: 0.9rem;
+}
+
+.expense-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.expense-amount {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* ========== Responsive additions ========== */
+@media (max-width: 600px) {
+  .header-nav {
+    flex-wrap: wrap;
+    gap: 2px;
+  }
+
+  .nav-btn {
+    padding: 5px 10px;
+    font-size: 0.78rem;
+  }
+
+  .expense-card {
+    flex-direction: column;
+  }
+
+  .expense-card-right {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .order-card-info {
+    font-size: 0.8rem;
+  }
+}
