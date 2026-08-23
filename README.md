@@ -1,6 +1,13 @@
 # Tests desde Temario
 
-App móvil (Android/iOS) para hacer tests de opción múltiple sobre uno o varios temarios. Las preguntas están precargadas en la app y todo funciona 100% offline.
+App para hacer tests de opción múltiple sobre uno o varios temarios. Las preguntas están precargadas y todo funciona 100% offline.
+
+Este repo tiene dos versiones independientes:
+
+- **Raíz** (esta carpeta): app móvil Android/iOS con Expo + React Native (documentada abajo).
+- **`/web`**: app web para PC con React + Vite, pensada para usarse en el navegador del ordenador. Ver `web/README.md`.
+
+## App móvil (Expo)
 
 ## Stack
 

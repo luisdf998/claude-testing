@@ -1,0 +1,68 @@
+:root {
+  --color-background: #FAFAF8;
+  --color-primary: #3B4A5E;
+  --color-accent: #C9A96E;
+  --color-correct: #6B8E6B;
+  --color-incorrect: #B85C4F;
+  --color-text: #2B2B2B;
+  --color-text-muted: #6B6B6B;
+  --color-card: #FFFFFF;
+  --color-border: #E4E1DA;
+
+  --font-title: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-xxl: 48px;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-title);
+  margin: 0;
+}
+
+button {
+  font-family: var(--font-body);
+}
+
+.app-shell {
+  max-width: 720px;
+  margin: 0 auto;
+  min-height: 100%;
+  padding: var(--space-xl) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+}

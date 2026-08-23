@@ -1,0 +1,282 @@
+[
+  {
+    "id": "cg-001",
+    "temario": "Cultura General (ejemplo)",
+    "pregunta": "¿Cuál es la capital de Francia?",
+    "opciones": ["Madrid", "París", "Roma", "Berlín"],
+    "correcta": 1
+  },
+  {
+    "id": "cg-002",
+    "temario": "Cultura General (ejemplo)",
+    "pregunta": "¿En qué año llegó el ser humano a la Luna por primera vez?",
+    "opciones": ["1965", "1969", "1972", "1958"],
+    "correcta": 1
+  },
+  {
+    "id": "cg-003",
+    "temario": "Cultura General (ejemplo)",
+    "pregunta": "¿Cuál es el océano más grande del planeta?",
+    "opciones": ["Atlántico", "Índico", "Ártico", "Pacífico"],
+    "correcta": 3
+  },
+  {
+    "id": "cg-004",
+    "temario": "Cultura General (ejemplo)",
+    "pregunta": "¿Quién pintó 'La noche estrellada'?",
+    "opciones": ["Pablo Picasso", "Vincent van Gogh", "Claude Monet", "Salvador Dalí"],
+    "correcta": 1
+  },
+  {
+    "id": "cg-005",
+    "temario": "Cultura General (ejemplo)",
+    "pregunta": "¿Cuál es el hueso más largo del cuerpo humano?",
+    "opciones": ["Húmero", "Tibia", "Fémur", "Radio"],
+    "correcta": 2
+  },
+  {
+    "id": "cg-006",
+    "temario": "Cultura General (ejemplo)",
+    "pregunta": "¿Cuántos continentes hay en la Tierra?",
+    "opciones": ["5", "6", "7", "4"],
+    "correcta": 2
+  },
+  {
+    "id": "cg-007",
+    "temario": "Cultura General (ejemplo)",
+    "pregunta": "¿Qué gas es más abundante en la atmósfera terrestre?",
+    "opciones": ["Oxígeno", "Dióxido de carbono", "Nitrógeno", "Hidrógeno"],
+    "correcta": 2
+  },
+  {
+    "id": "cg-008",
+    "temario": "Cultura General (ejemplo)",
+    "pregunta": "¿Quién escribió 'Don Quijote de la Mancha'?",
+    "opciones": ["Lope de Vega", "Miguel de Cervantes", "Federico García Lorca", "Gustavo Adolfo Bécquer"],
+    "correcta": 1
+  },
+  {
+    "id": "cg-009",
+    "temario": "Cultura General (ejemplo)",
+    "pregunta": "¿Cuál es el río más largo del mundo?",
+    "opciones": ["Nilo", "Amazonas", "Yangtsé", "Misisipi"],
+    "correcta": 1
+  },
+  {
+    "id": "cg-010",
+    "temario": "Cultura General (ejemplo)",
+    "pregunta": "¿Cuál es el metal líquido a temperatura ambiente?",
+    "opciones": ["Hierro", "Mercurio", "Plomo", "Aluminio"],
+    "correcta": 1
+  },
+  {
+    "id": "cg-011",
+    "temario": "Cultura General (ejemplo)",
+    "pregunta": "¿Cuántos planetas tiene el sistema solar?",
+    "opciones": ["7", "8", "9", "10"],
+    "correcta": 1
+  },
+  {
+    "id": "cg-012",
+    "temario": "Cultura General (ejemplo)",
+    "pregunta": "¿Qué instrumento se usa para medir la temperatura?",
+    "opciones": ["Barómetro", "Termómetro", "Higrómetro", "Anemómetro"],
+    "correcta": 1
+  },
+  {
+    "id": "cg-013",
+    "temario": "Cultura General (ejemplo)",
+    "pregunta": "¿Cuál es la moneda oficial de Japón?",
+    "opciones": ["Yuan", "Won", "Yen", "Rupia"],
+    "correcta": 2
+  },
+  {
+    "id": "cg-014",
+    "temario": "Cultura General (ejemplo)",
+    "pregunta": "¿Qué órgano bombea la sangre en el cuerpo humano?",
+    "opciones": ["Pulmón", "Corazón", "Hígado", "Riñón"],
+    "correcta": 1
+  },
+  {
+    "id": "cg-015",
+    "temario": "Cultura General (ejemplo)",
+    "pregunta": "¿Cuál es el idioma más hablado del mundo como lengua materna?",
+    "opciones": ["Inglés", "Español", "Mandarín", "Hindi"],
+    "correcta": 2
+  },
+  {
+    "id": "cg-016",
+    "temario": "Cultura General (ejemplo)",
+    "pregunta": "¿En qué continente se encuentra el desierto del Sahara?",
+    "opciones": ["Asia", "África", "Oceanía", "América"],
+    "correcta": 1
+  },
+  {
+    "id": "cg-017",
+    "temario": "Cultura General (ejemplo)",
+    "pregunta": "¿Qué elemento químico tiene el símbolo 'O'?",
+    "opciones": ["Oro", "Osmio", "Oxígeno", "Óxido"],
+    "correcta": 2
+  },
+  {
+    "id": "cg-018",
+    "temario": "Cultura General (ejemplo)",
+    "pregunta": "¿Cuál es el país más poblado del mundo?",
+    "opciones": ["India", "Estados Unidos", "China", "Indonesia"],
+    "correcta": 0
+  },
+  {
+    "id": "cg-019",
+    "temario": "Cultura General (ejemplo)",
+    "pregunta": "¿Qué mar separa Europa de África en su punto más cercano?",
+    "opciones": ["Mar Rojo", "Mar Mediterráneo", "Mar Negro", "Mar Egeo"],
+    "correcta": 1
+  },
+  {
+    "id": "cg-020",
+    "temario": "Cultura General (ejemplo)",
+    "pregunta": "¿Cuál es la velocidad de la luz aproximada en el vacío?",
+    "opciones": ["300.000 km/s", "150.000 km/s", "1.000.000 km/s", "30.000 km/s"],
+    "correcta": 0
+  },
+  {
+    "id": "hi-001",
+    "temario": "Historia (ejemplo)",
+    "pregunta": "¿En qué año comenzó la Segunda Guerra Mundial?",
+    "opciones": ["1935", "1939", "1941", "1945"],
+    "correcta": 1
+  },
+  {
+    "id": "hi-002",
+    "temario": "Historia (ejemplo)",
+    "pregunta": "¿Quién fue el primer emperador de Roma?",
+    "opciones": ["Julio César", "Augusto", "Nerón", "Trajano"],
+    "correcta": 1
+  },
+  {
+    "id": "hi-003",
+    "temario": "Historia (ejemplo)",
+    "pregunta": "¿En qué año cayó el Muro de Berlín?",
+    "opciones": ["1985", "1989", "1991", "1993"],
+    "correcta": 1
+  },
+  {
+    "id": "hi-004",
+    "temario": "Historia (ejemplo)",
+    "pregunta": "¿Qué civilización construyó Machu Picchu?",
+    "opciones": ["Azteca", "Maya", "Inca", "Olmeca"],
+    "correcta": 2
+  },
+  {
+    "id": "hi-005",
+    "temario": "Historia (ejemplo)",
+    "pregunta": "¿En qué año llegó Cristóbal Colón a América?",
+    "opciones": ["1492", "1500", "1453", "1521"],
+    "correcta": 0
+  },
+  {
+    "id": "hi-006",
+    "temario": "Historia (ejemplo)",
+    "pregunta": "¿Qué revolución comenzó en 1789?",
+    "opciones": ["Revolución Rusa", "Revolución Francesa", "Revolución Industrial", "Revolución Mexicana"],
+    "correcta": 1
+  },
+  {
+    "id": "hi-007",
+    "temario": "Historia (ejemplo)",
+    "pregunta": "¿Quién fue el líder de la independencia de la India?",
+    "opciones": ["Nelson Mandela", "Mahatma Gandhi", "Jawaharlal Nehru", "Winston Churchill"],
+    "correcta": 1
+  },
+  {
+    "id": "hi-008",
+    "temario": "Historia (ejemplo)",
+    "pregunta": "¿En qué siglo tuvo lugar el Renacimiento?",
+    "opciones": ["Siglo XII-XIII", "Siglo XIV-XVI", "Siglo XVII-XVIII", "Siglo XIX"],
+    "correcta": 1
+  },
+  {
+    "id": "hi-009",
+    "temario": "Historia (ejemplo)",
+    "pregunta": "¿Qué imperio construyó el Coliseo?",
+    "opciones": ["Imperio Griego", "Imperio Romano", "Imperio Bizantino", "Imperio Otomano"],
+    "correcta": 1
+  },
+  {
+    "id": "hi-010",
+    "temario": "Historia (ejemplo)",
+    "pregunta": "¿En qué año terminó la Primera Guerra Mundial?",
+    "opciones": ["1914", "1916", "1918", "1920"],
+    "correcta": 2
+  },
+  {
+    "id": "hi-011",
+    "temario": "Historia (ejemplo)",
+    "pregunta": "¿Quién escribió el 'Manifiesto Comunista'?",
+    "opciones": ["Lenin", "Marx y Engels", "Stalin", "Trotsky"],
+    "correcta": 1
+  },
+  {
+    "id": "hi-012",
+    "temario": "Historia (ejemplo)",
+    "pregunta": "¿Qué dinastía gobernó China durante más tiempo?",
+    "opciones": ["Ming", "Qing", "Zhou", "Han"],
+    "correcta": 2
+  },
+  {
+    "id": "hi-013",
+    "temario": "Historia (ejemplo)",
+    "pregunta": "¿En qué año se fundó la ONU?",
+    "opciones": ["1919", "1945", "1950", "1939"],
+    "correcta": 1
+  },
+  {
+    "id": "hi-014",
+    "temario": "Historia (ejemplo)",
+    "pregunta": "¿Qué faraón egipcio es conocido por su máscara de oro?",
+    "opciones": ["Ramsés II", "Tutankamón", "Akenatón", "Keops"],
+    "correcta": 1
+  },
+  {
+    "id": "hi-015",
+    "temario": "Historia (ejemplo)",
+    "pregunta": "¿Qué país fue conocido como 'la Alemania del Este'?",
+    "opciones": ["RFA", "RDA", "Prusia", "Austria"],
+    "correcta": 1
+  },
+  {
+    "id": "hi-016",
+    "temario": "Historia (ejemplo)",
+    "pregunta": "¿Quién fue el primer presidente de Estados Unidos?",
+    "opciones": ["Thomas Jefferson", "Abraham Lincoln", "George Washington", "John Adams"],
+    "correcta": 2
+  },
+  {
+    "id": "hi-017",
+    "temario": "Historia (ejemplo)",
+    "pregunta": "¿Qué acontecimiento marcó el inicio de la Guerra Fría?",
+    "opciones": ["Fin de la Segunda Guerra Mundial", "Crisis de los misiles de Cuba", "Construcción del Muro de Berlín", "Revolución Cubana"],
+    "correcta": 0
+  },
+  {
+    "id": "hi-018",
+    "temario": "Historia (ejemplo)",
+    "pregunta": "¿Qué imperio precolombino tenía su capital en Tenochtitlán?",
+    "opciones": ["Inca", "Maya", "Azteca", "Olmeca"],
+    "correcta": 2
+  },
+  {
+    "id": "hi-019",
+    "temario": "Historia (ejemplo)",
+    "pregunta": "¿En qué año se proclamó la Segunda República Española?",
+    "opciones": ["1923", "1931", "1936", "1939"],
+    "correcta": 1
+  },
+  {
+    "id": "hi-020",
+    "temario": "Historia (ejemplo)",
+    "pregunta": "¿Qué explorador circunnavegó el globo por primera vez?",
+    "opciones": ["Vasco da Gama", "Cristóbal Colón", "Fernando de Magallanes", "Marco Polo"],
+    "correcta": 2
+  }
+]
